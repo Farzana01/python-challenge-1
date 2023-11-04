@@ -52,7 +52,11 @@ menu = {
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
-
+# my comment: Initialize an empty list to store the final output of orders as a dictionary
+order_list = {}
+ 
+# my comment: Initialize an empty list to store the input from the user
+menu_selection = {}
 
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
@@ -154,27 +158,32 @@ while place_order:
     while True:
         # Ask the customer if they would like to order anything else
         keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
-
         # 5. Check the customer's input
-
+        match (keep_ordering.lower()):
                 # Keep ordering
-
-                # Exit the keep ordering question loop
-
-                # Complete the order
-
+            case 'y':
+                print("What would you like to order next?")
+                break
+            
                 # Since the customer decided to stop ordering, thank them for
                 # their order
-
+            case 'n':
+                print("Thank you for your order.")
+                quit()
+                 
+        
+                # Complete the order
+            
+ 
                 # Exit the keep ordering question loop
 
 
                 # Tell the customer to try again
-
+                print("Please try again")
 
 # Print out the customer's order
 print("This is what we are preparing for you.\n")
-
+menu_selection
 # Uncomment the following line to check the structure of the order
 #print(order)
 
