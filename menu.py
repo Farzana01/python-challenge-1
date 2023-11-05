@@ -131,14 +131,24 @@ while place_order:
                 # Convert the menu selection to an integer
                 int(menu_selection)
                 print("you have selected: " + menu_selection)
-                #print(menu_items)
+                print(menu_items.keys())
                 print(f'{menu_items[int(menu_selection)]}')
-
-
                 
                 # 4. Check if the menu selection is in the menu items
+                sub_menu_item_number_list = list(menu_items.keys())
+                print (sub_menu_item_number_list)
+                #for j in sub_menu_item_number_list:
+                #    if(j == ):
+                #        print("Item # exists") 
+                if int(menu_selection) in sub_menu_item_number_list:
+                    print("You have made a valid selection!")
                 
-                
+                    
+
+
+
+
+
 
 
 
@@ -155,6 +165,8 @@ while place_order:
 
 
                     # Tell the customer that their input isn't valid
+                else: 
+                    print ("Item # does not exist") 
 
 
                 # Tell the customer they didn't select a menu option
