@@ -132,7 +132,7 @@ while place_order:
                 int(menu_selection)
                 print("you have selected: " + menu_selection)
                 print(menu_items.keys())
-                print(f'{menu_items[int(menu_selection)]}')
+                #print(f'{menu_items[int(menu_selection)]}')
                 
                 # 4. Check if the menu selection is in the menu items
                 sub_menu_item_number_list = list(menu_items.keys())
@@ -144,14 +144,6 @@ while place_order:
                     print("You have made a valid selection!")
                 
                     
-
-
-
-
-
-
-
-
                     # Store the item name as a variable
 
 
