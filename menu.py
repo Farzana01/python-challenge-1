@@ -131,32 +131,48 @@ while place_order:
                 # Convert the menu selection to an integer
                 int(menu_selection)
                 print("you have selected: " + menu_selection)
-                print(menu_items.keys())
+                #print(menu_items.keys())
                 #print(f'{menu_items[int(menu_selection)]}')
                 
                 # 4. Check if the menu selection is in the menu items
                 sub_menu_item_number_list = list(menu_items.keys())
                 print (sub_menu_item_number_list)
-                #for j in sub_menu_item_number_list:
-                #    if(j == ):
-                #        print("Item # exists") 
+                
                 if int(menu_selection) in sub_menu_item_number_list:
                     print("You have made a valid selection!")
                 
                     
                     # Store the item name as a variable
-
-
-                    # Ask the customer for the quantity of the menu item
+                    #print (menu_items[int(menu_selection)])
+                    cust_order = menu_items[int(menu_selection)]
+                    print (cust_order)
+                    #Find out how to store only the item name later
+                    
+                     
                 
 
+                   
+                   
+                   
+                   
+                    
+                    # Ask the customer for the quantity of the menu item
+                    #selection_qty = input("How many of this item do you want?: ")
+                    print("How many of this item do you want?: ")
+
                     # Check if the quantity is a number, default to 1 if not
+                    #if selection_qty.isdigit():
+                    inp = int(input("Select quantity: ") or "1")
+                    print("You selected: ", inp , "items of " , cust_order )
 
 
                     # Add the item name, price, and quantity to the order list
 
 
                     # Tell the customer that their input isn't valid
+                    #else:
+                        #print("You didn't select a number.")
+
                 else: 
                     print ("Item # does not exist") 
 
@@ -167,7 +183,7 @@ while place_order:
 
         else:
             # Tell the customer they didn't select a menu option
-            print(f"{menu_category} was not a menu option.")
+            print(f"{menu_category} is not a menu option.")
     else:
         # Tell the customer they didn't select a number
         print("You didn't select a number.")
