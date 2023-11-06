@@ -53,7 +53,11 @@ menu = {
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
 # my comment: Initialize an empty list to store the final output of orders as a dictionary
-order_list = {}
+order_list = {
+    "Item name":[],
+    "Price":[],
+    "Quatity":[]
+}
  
 # my comment: Initialize an empty list to store the input from the user
 menu_selection = {}
@@ -143,31 +147,24 @@ while place_order:
                 
                     
                     # Store the item name as a variable
-                    #print (menu_items[int(menu_selection)])
+
                     cust_order = menu_items[int(menu_selection)]
                     print (cust_order)
-                    #Find out how to store only the item name later
-                    
-                     
-                
 
-                   
-                   
-                   
+                    selected_item_name = cust_order.get("Item name")
+
+                    selected_item_price = cust_order.get("Price")
+
+                    print("Selected item: ", selected_item_name, "Selected item price: ", selected_item_price)
+                    #Find out how to store only the item name later
+
                    
                     
                     # Ask the customer for the quantity of the menu item
-                    #selection_qty = input("How many of this item do you want?: ")
-                    #print("How many of this item do you want?: ")
-
-                    # Check if the quantity is a number, default to 1 if not
-                    #if selection_qty.isdigit():
-
-                    #inp = input("Select quantity: " or "1")
-                    #print("You selected: ", inp , "items of " , cust_order )
-
-                    order_quantity = input(f"How many do you want from {cust_order}? if quantity is invalid, it will be defaulted to 1!  ")
+                    order_quantity = input(f"How many {selected_item_name} do you want to order? If quantity is invalid, it will be defaulted to 1!  ")
                     
+
+                    # Check if the quantity is a number, default to 1 if not                    
                     try:
                         order_quantity = int(order_quantity)
                     except ValueError:
@@ -179,11 +176,14 @@ while place_order:
 
 
                     # Add the item name, price, and quantity to the order list
+                    order_list["Item name"].append(selected_item_name)
+                    order_list["Price"].append(selected_item_price)
+                    order_list["Quatity"].append(order_quantity)
 
+                    print ("This is your order: ", order_list)
 
                     # Tell the customer that their input isn't valid
-                    #else:
-                        #print("You didn't select a number.")
+                    
 
                 else: 
                     print ("Item # does not exist") 
