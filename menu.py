@@ -200,26 +200,29 @@ while place_order:
         # Tell the customer they didn't select a number
         print("You didn't select a number.")
 
-    while True:
+    
         # Ask the customer if they would like to order anything else
         keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
         # 5. Check the customer's input
         match (keep_ordering.lower()):
                 # Keep ordering
             case 'y':
+                place_order = True
                 print("What would you like to order next?")
-                break
+                keep_ordering
             
                 # Since the customer decided to stop ordering, thank them for
                 # their order
             case 'n':
+                place_order = False
                 print("Thank you for your order.")
-                quit()
+                break
                  
-            case other :
-                print("You didn't select Y/N as an option. Program ending.")
+            case _ :
+                place_order = False
+                print("Would you like to order more? You didn't select Y/N as an option. The program will end")
                 print("Restart program to order")
-                exit()
+                StopIteration()
         
                 # Complete the order
             
