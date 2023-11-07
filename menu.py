@@ -56,7 +56,7 @@ menu = {
 order_list = {
     "Item name":[],
     "Price":[],
-    "Quatity":[]
+    "Quantity":[]
 }
  
 # my comment: Initialize an empty list to store the input from the user
@@ -157,8 +157,7 @@ while place_order:
 
                     print("Selected item: ", selected_item_name, "Selected item price: ", selected_item_price)
                     #Find out how to store only the item name later
-
-                   
+                  
                     
                     # Ask the customer for the quantity of the menu item
                     order_quantity = input(f"How many {selected_item_name} do you want to order? If quantity is invalid, it will be defaulted to 1!  ")
@@ -177,8 +176,8 @@ while place_order:
 
                     # Add the item name, price, and quantity to the order list
                     order_list["Item name"].append(selected_item_name)
-                    order_list["Price"].append(selected_item_price)
-                    order_list["Quatity"].append(order_quantity)
+                    order_list["Price"].append(float(selected_item_price))
+                    order_list["Quantity"].append(int(order_quantity))
 
                     print ("This is your order: ", order_list)
 
@@ -239,23 +238,52 @@ menu_selection
 # Uncomment the following line to check the structure of the order
 #print(order)
 
+
 print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
 
 # 6. Loop through the items in the customer's order
+#for k, v in order_list.items():
+
+
 
     # 7. Store the dictionary items as variables
+order_itm_ary = order_list.get("Item name")
+order_prc_ary = order_list.get("Price")
+order_qty_ary = order_list.get("Quantity")
+    #order_amt_ary = (order_prc) * (order_qty)
+length = len(order_itm_ary)
+total_order = 0.00
+
+item_space = 26
+price_space = 8
+quantity_space = 10
+
+
+for m in range(length):
+    order_amt = order_prc_ary[m] * order_qty_ary[m]
+    
 
 
     # 8. Calculate the number of spaces for formatted printing
+    itm = item_space - len(order_itm_ary[m]) - 2
+    prc = price_space - len(str(order_prc_ary[m])) - 3
+    qty = quantity_space - len(str(order_qty_ary[m]))
+
 
 
     # 9. Create space strings
+    total_order = total_order + order_amt
+
 
 
     # 10. Print the item name, price, and quantity
+    print(order_itm_ary[m],itm * " ", "|", order_prc_ary[m],prc * " ", "|", order_qty_ary[m],qty * " ", " = ", order_amt)
+
 
 
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
+print("\nYour total order amount is: $", round(total_order,2))
+print("Thank you for shopping with us!!!\n")
