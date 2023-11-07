@@ -63,14 +63,14 @@ order_list = {
 menu_selection = {}
 
 # Launch the store and present a greeting to the customer
-print("Welcome to the variety food truck.")
+print("Welcome to Farzana's One Stop food truck.")
 
 # Customers may want to order multiple items, so let's create a continuous
 # loop
 place_order = True
 while place_order:
     # Ask the customer from which menu category they want to order
-    print("From which menu would you like to order? ")
+    print("From which menu would you like to order? If you do not wish to proceed, hit Enter")
 
     # Create a variable for the menu item number
     i = 1
@@ -87,7 +87,7 @@ while place_order:
         i += 1
 
     # Get the customer's input
-    menu_category = input("Type menu number: ")
+    menu_category = input("Type a menu number: ")
 
     # Check if the customer's input is a number
     if menu_category.isdigit():
@@ -134,28 +134,28 @@ while place_order:
 
                 # Convert the menu selection to an integer
                 int(menu_selection)
-                print("you have selected: " + menu_selection)
+              #  print("you have selected: " + menu_selection)
                 #print(menu_items.keys())
                 #print(f'{menu_items[int(menu_selection)]}')
                 
                 # 4. Check if the menu selection is in the menu items
                 sub_menu_item_number_list = list(menu_items.keys())
-                print (sub_menu_item_number_list)
+               # print (sub_menu_item_number_list)
                 
                 if int(menu_selection) in sub_menu_item_number_list:
-                    print("You have made a valid selection!")
+                    #print("You have made a valid selection!")
                 
                     
                     # Store the item name as a variable
 
                     cust_order = menu_items[int(menu_selection)]
-                    print (cust_order)
+                   # print (cust_order)
 
                     selected_item_name = cust_order.get("Item name")
 
                     selected_item_price = cust_order.get("Price")
 
-                    print("Selected item: ", selected_item_name, "Selected item price: ", selected_item_price)
+                    print("You have selected:", selected_item_name, "for", selected_item_price, "each")
                     #Find out how to store only the item name later
                   
                     
@@ -169,7 +169,7 @@ while place_order:
                     except ValueError:
                         order_quantity = 1
                     
-                    print("You selected: ", order_quantity , "items of " , cust_order )
+                  #  print("You selected: ", order_quantity , "items of " , cust_order )
 
 
 
@@ -179,13 +179,13 @@ while place_order:
                     order_list["Price"].append(float(selected_item_price))
                     order_list["Quantity"].append(int(order_quantity))
 
-                    print ("This is your order: ", order_list)
+                    print ("Your current order is: ", order_list)
 
                     # Tell the customer that their input isn't valid
                     
 
                 else: 
-                    print ("Item # does not exist") 
+                    print ("Item",menu_selection, "does not exist") 
 
 
                 # Tell the customer they didn't select a menu option
