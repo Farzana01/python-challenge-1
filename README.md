@@ -1,2 +1,2 @@
 # python-challenge-1
-designing an interactive ordering system from a food truck menu
+This challenge is to create a ordeing system from a food truck.
